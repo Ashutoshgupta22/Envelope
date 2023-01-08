@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+
+<head>
+    <title>Envelope Login</title>
+    <link rel="stylesheet" href="login/login.css">
+</head>
+
+<body>
+
+<h1 > <b>Envelope</b></h1>
+
+<div id="form_div" class="container">
+    <form id="login_form" action="login" method="POST">
+        Username : <input type="text" class="textBox" name="username" id="username">
+        <br />
+        <br />
+        Password : <input type="password" class="textBox" name="login_password"
+                          id="login_password">
+        <br />
+
+        <input id="signupBtn"  class="button" type="button" value="Sign Up" onclick="signupBtnClicked()">
+        <input id="loginBtn"  class="button"    type ="button" value="Login" onclick="loginBtnClicked()">
+
+
+
+    </form>
+    <!--  <button id="loginBtn"  value="Login" onclick="ValidateLogin()">Login</button> -->
+</div>
+
+<script src="login/login.js"></script>
+<noscript>Please enable javascript to view full website.</noscript>
+
+</body>
+</html>
+

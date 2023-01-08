@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+
+<head>
+  <title>Envelope Login</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+<h1 > <b>Envelope</b></h1>
+
+<h3 style="margin-top: 250px; margin-bottom: 0px; font-size: 40px;"> <b>Sign Up</b></h3>
+
+<div id="form_div" class="container">
+  <form id="signup_form"  action="signup" method="POST">
+
+    Name : <input type="text" class="textBox" name="name" id="name">
+    <br />
+    Username : <input type="text" class="textBox" name="username" id="username">
+    <br />
+    Password : <input type="password" class="textBox" name="signup_password"
+                      id="signup_password">
+    <br />
+    Confirm Password : <input type="password" class="textBox" name="confirm_password"
+                              id="confirm_password">
+    <br />
+    <input  id="signupBtn"  class="button" type ="button" value="Sign Up" onclick="registerUser()">
+
+  </form>
+</div>
+
+ <script src="signup.js"></script>
+<noscript>Please enable javascript to view full website.</noscript>
+
+</body>
+</html>

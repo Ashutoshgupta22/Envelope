@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+h1 {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    font-size: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:coral;
+}
+
+body {
+    background: white;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    margin-top: 50px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+
+    width: 150px;
+    height: 60px;
+    /* font-size: larger; */
+    position: center;
+    margin-top: 50px;
+    background-color: white;
+    border: 2px solid coral;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-size: 25px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#signupBtn:hover {
+
+    color: white;
+    background-color: coral;
+}
+
+.textBox {
+
+    font-size: 30px;
+    border: 2px solid skyblue;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
