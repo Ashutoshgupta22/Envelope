@@ -20,12 +20,6 @@ public class LoginServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        if(request==null) {
-
-            response.sendError(1500,"Request is null");
-            return;
-        }
-
         System.out.println("LoginServlet doGet called");
         response.setContentType("text/html");
 
@@ -36,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 
         if (password.equals("qwe")) {
 
-            dispatcher = request.getRequestDispatcher("signup/signup.html");
+            dispatcher = request.getRequestDispatcher("home/home.html");
             dispatcher.forward(request,response);
         }
         else {
