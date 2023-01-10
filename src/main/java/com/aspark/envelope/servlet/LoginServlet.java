@@ -1,7 +1,9 @@
 package com.aspark.envelope.servlet;
 
 import java.io.*;
+import java.sql.SQLException;
 
+import com.aspark.envelope.UserAuthentication;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -12,9 +14,18 @@ public class LoginServlet extends HttpServlet {
 
     String userName,password;
     RequestDispatcher dispatcher;
+    UserAuthentication userAuthentication;
 
     public void init() {
 
+        try {
+
+            userAuthentication = new UserAuthentication();
+
+        } catch (SQLException | ClassNotFoundException e) {
+
+            throw new RuntimeException(e);
+        }
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,18 +39,35 @@ public class LoginServlet extends HttpServlet {
         userName = request.getParameter("username");
         password = request.getParameter("login_password");
 
-        if (password.equals("qwe")) {
+        try {
 
-            dispatcher = request.getRequestDispatcher("home/home.html");
-            dispatcher.forward(request,response);
-        }
-        else {
+            if (userAuthentication.ifUserExists(userName)) {
 
-            out.println("Username or password incorrect");
-            dispatcher = request.getRequestDispatcher("login.html");
-            dispatcher.include(request,response);
+                System.out.println("user EXISTS");
+
+                if (userAuthentication.ifPasswordMatches(userName, password)) {
+
+                    System.out.println("Welcome back!");
+
+                    dispatcher = request.getRequestDispatcher("home/home.html");
+                    dispatcher.forward(request, response);
+                } else {
+
+                    out.println("Username or password incorrect");
+                    dispatcher = request.getRequestDispatcher("login.html");
+                    dispatcher.include(request, response);
+                }
+            } else {
+
+                out.println("User does not exist");
+                dispatcher = request.getRequestDispatcher("login.html");
+                dispatcher.include(request, response);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        out.close();
+
     }
 
     @Override
